@@ -1,6 +1,8 @@
 # Flamelet LUT Viewer
 
-An interactive browser-based tool for inspecting hydrogen flamelet lookup tables in the SU2 `.drg` format. Supports scatter plotting of any table variable, a 3D scatter view, and a visualisation of the trapezoidal map (slab decomposition) that SU2 builds internally for table lookup.
+An (AI slop) interactive browser-based tool for inspecting hydrogen flamelet lookup tables in the SU2 `.drg` format. Supports scatter plotting of any table variable, a 3D scatter view, and a visualisation of the trapezoidal map (slab decomposition) that SU2 builds internally for table lookup.
+
+I made this with Claude so if it doesn't work blame him!
 
 ![Trapezoidal map view showing the triangle mesh, slab boundaries, and hull vertices for a single mixture fraction level](docs/trapmap_preview.png)
 
