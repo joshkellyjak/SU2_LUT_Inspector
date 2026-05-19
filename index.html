@@ -9,37 +9,59 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: #0f1117;
-      color: #e0e0e0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: #f0f2f5;
+      color: #1a1a2e;
       display: flex;
       flex-direction: column;
       height: 100vh;
       overflow: hidden;
     }
 
+    /* ── Header ── */
     header {
-      background: #1a1d27;
-      border-bottom: 1px solid #2a2d3a;
+      background: #ffffff;
+      border-bottom: 1px solid #dde1e9;
       padding: 10px 20px;
       display: flex;
       align-items: center;
-      gap: 16px;
+      gap: 20px;
       flex-shrink: 0;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+      z-index: 10;
     }
 
-    header h1 {
-      font-size: 16px;
-      font-weight: 600;
-      color: #fff;
-      letter-spacing: 0.3px;
+    header h1 { font-size: 15px; font-weight: 700; color: #1a1a2e; }
+
+    .header-info { font-size: 11px; color: #6b7280; }
+
+    .view-tabs {
+      display: flex;
+      gap: 4px;
+      margin-left: auto;
     }
 
-    header .subtitle {
-      font-size: 12px;
+    .tab-btn {
+      padding: 5px 14px;
+      border-radius: 6px;
+      border: 1px solid #dde1e9;
+      background: #f0f2f5;
       color: #6b7280;
+      font-size: 12px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.15s;
     }
 
+    .tab-btn.active {
+      background: #2563eb;
+      border-color: #2563eb;
+      color: #fff;
+    }
+
+    .tab-btn:hover:not(.active) { background: #e4e7ec; color: #1a1a2e; }
+
+    /* ── Layout ── */
     .layout {
       display: flex;
       flex: 1;
@@ -48,179 +70,209 @@
 
     /* ── Sidebar ── */
     .sidebar {
-      width: 280px;
+      width: 270px;
       flex-shrink: 0;
-      background: #1a1d27;
-      border-right: 1px solid #2a2d3a;
+      background: #ffffff;
+      border-right: 1px solid #dde1e9;
       display: flex;
       flex-direction: column;
       overflow-y: auto;
-      padding: 16px;
-      gap: 20px;
+      padding: 14px;
+      gap: 18px;
     }
 
     .section-title {
       font-size: 10px;
       font-weight: 700;
-      letter-spacing: 1px;
+      letter-spacing: 0.8px;
       text-transform: uppercase;
-      color: #6b7280;
-      margin-bottom: 10px;
+      color: #9ca3af;
+      margin-bottom: 8px;
     }
 
     label {
       display: block;
       font-size: 11px;
-      color: #9ca3af;
-      margin-bottom: 4px;
-    }
-
-    select, input[type=range] {
-      width: 100%;
+      color: #6b7280;
+      margin-bottom: 3px;
+      font-weight: 500;
     }
 
     select {
-      background: #0f1117;
-      border: 1px solid #2a2d3a;
-      color: #e0e0e0;
+      width: 100%;
+      background: #f9fafb;
+      border: 1px solid #dde1e9;
+      color: #1a1a2e;
       border-radius: 6px;
-      padding: 6px 8px;
+      padding: 5px 8px;
       font-size: 12px;
       cursor: pointer;
-      margin-bottom: 10px;
+      margin-bottom: 8px;
     }
 
-    select:focus { outline: none; border-color: #4f6ef7; }
+    select:focus { outline: none; border-color: #2563eb; }
 
     .slider-row {
       display: flex;
       align-items: center;
       gap: 8px;
-      margin-bottom: 10px;
+      margin-bottom: 8px;
     }
 
     input[type=range] {
       flex: 1;
-      accent-color: #4f6ef7;
+      accent-color: #2563eb;
       cursor: pointer;
     }
 
     .slider-value {
       font-size: 11px;
-      color: #e0e0e0;
-      background: #0f1117;
-      border: 1px solid #2a2d3a;
+      color: #1a1a2e;
+      background: #f9fafb;
+      border: 1px solid #dde1e9;
       border-radius: 4px;
       padding: 3px 6px;
-      min-width: 44px;
+      min-width: 40px;
       text-align: center;
+      font-variant-numeric: tabular-nums;
     }
 
-    .level-mf {
-      font-size: 10px;
-      color: #6b7280;
-      margin-bottom: 12px;
+    .level-info {
+      font-size: 11px;
+      color: #374151;
+      background: #eff6ff;
+      border: 1px solid #bfdbfe;
+      border-radius: 6px;
+      padding: 6px 8px;
+      margin-bottom: 8px;
+      font-variant-numeric: tabular-nums;
     }
 
-    /* Level navigation buttons */
     .level-nav {
       display: flex;
       gap: 6px;
-      margin-bottom: 12px;
+      margin-bottom: 6px;
     }
 
     .level-nav button {
       flex: 1;
-      background: #0f1117;
-      border: 1px solid #2a2d3a;
-      color: #9ca3af;
+      background: #f9fafb;
+      border: 1px solid #dde1e9;
+      color: #374151;
       border-radius: 6px;
       padding: 5px 0;
       font-size: 12px;
       cursor: pointer;
-      transition: background 0.15s, color 0.15s;
+      transition: all 0.15s;
     }
 
-    .level-nav button:hover { background: #2a2d3a; color: #fff; }
+    .level-nav button:hover { background: #e4e7ec; }
 
-    /* Stats panel */
+    /* Stats */
     .stats-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 6px;
+      gap: 5px;
     }
 
     .stat-card {
-      background: #0f1117;
-      border: 1px solid #2a2d3a;
+      background: #f9fafb;
+      border: 1px solid #dde1e9;
       border-radius: 6px;
-      padding: 8px;
+      padding: 7px 8px;
     }
 
     .stat-label {
       font-size: 9px;
       text-transform: uppercase;
       letter-spacing: 0.5px;
-      color: #6b7280;
+      color: #9ca3af;
       margin-bottom: 2px;
+      font-weight: 600;
     }
 
     .stat-value {
-      font-size: 12px;
+      font-size: 11px;
       font-weight: 600;
-      color: #e0e0e0;
+      color: #111827;
       font-variant-numeric: tabular-nums;
     }
 
-    /* Overlay toggle */
+    /* Toggle switch */
     .toggle-row {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      margin-bottom: 10px;
+      margin-bottom: 8px;
     }
 
-    .toggle-label {
-      font-size: 11px;
-      color: #9ca3af;
-    }
+    .toggle-label { font-size: 11px; color: #6b7280; font-weight: 500; }
 
-    .toggle {
-      position: relative;
-      width: 36px;
-      height: 20px;
-    }
-
+    .toggle { position: relative; width: 34px; height: 18px; }
     .toggle input { opacity: 0; width: 0; height: 0; }
-
     .toggle-slider {
-      position: absolute;
-      inset: 0;
-      background: #2a2d3a;
-      border-radius: 20px;
-      cursor: pointer;
+      position: absolute; inset: 0;
+      background: #d1d5db;
+      border-radius: 18px; cursor: pointer;
       transition: background 0.2s;
     }
-
     .toggle-slider::before {
       content: "";
       position: absolute;
-      width: 14px; height: 14px;
+      width: 12px; height: 12px;
       left: 3px; top: 3px;
       background: #fff;
       border-radius: 50%;
       transition: transform 0.2s;
     }
-
-    .toggle input:checked + .toggle-slider { background: #4f6ef7; }
+    .toggle input:checked + .toggle-slider { background: #2563eb; }
     .toggle input:checked + .toggle-slider::before { transform: translateX(16px); }
 
-    /* ── Main chart area ── */
+    /* Color scale buttons */
+    .colorscale-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+      margin-bottom: 8px;
+    }
+
+    .cs-btn {
+      padding: 3px 7px;
+      border-radius: 4px;
+      border: 1px solid #dde1e9;
+      background: #f9fafb;
+      color: #6b7280;
+      font-size: 10px;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+
+    .cs-btn.active, .cs-btn:hover {
+      border-color: #2563eb;
+      color: #2563eb;
+    }
+
+    .cs-btn.active { background: #eff6ff; }
+
+    /* Trapmap band slider info */
+    .band-info {
+      font-size: 10px;
+      color: #6b7280;
+      background: #f9fafb;
+      border: 1px solid #dde1e9;
+      border-radius: 6px;
+      padding: 6px 8px;
+      margin-bottom: 6px;
+      line-height: 1.6;
+    }
+
+    /* ── Main chart ── */
     .main {
       flex: 1;
       display: flex;
       flex-direction: column;
       overflow: hidden;
+      background: #ffffff;
     }
 
     #chart {
@@ -228,11 +280,11 @@
       min-height: 0;
     }
 
-    /* Loading overlay */
+    /* ── Loading overlay ── */
     #loading {
       position: fixed;
       inset: 0;
-      background: rgba(15, 17, 23, 0.85);
+      background: rgba(255,255,255,0.88);
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -244,42 +296,22 @@
     #loading.hidden { display: none; }
 
     .spinner {
-      width: 36px; height: 36px;
-      border: 3px solid #2a2d3a;
-      border-top-color: #4f6ef7;
+      width: 34px; height: 34px;
+      border: 3px solid #dde1e9;
+      border-top-color: #2563eb;
       border-radius: 50%;
       animation: spin 0.8s linear infinite;
     }
 
     @keyframes spin { to { transform: rotate(360deg); } }
 
-    #loading-text { font-size: 13px; color: #9ca3af; }
+    #loading-text { font-size: 13px; color: #6b7280; font-weight: 500; }
 
-    /* colorscale picker */
-    .colorscale-grid {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      margin-bottom: 10px;
-    }
+    /* View panels */
+    .panel { display: none; }
+    .panel.active { display: contents; }
 
-    .cs-btn {
-      padding: 4px 8px;
-      border-radius: 4px;
-      border: 1px solid #2a2d3a;
-      background: #0f1117;
-      color: #9ca3af;
-      font-size: 11px;
-      cursor: pointer;
-      transition: all 0.15s;
-    }
-
-    .cs-btn.active, .cs-btn:hover {
-      border-color: #4f6ef7;
-      color: #4f6ef7;
-    }
-
-    .cs-btn.active { background: #1a1d27; }
+    hr { border: none; border-top: 1px solid #dde1e9; margin: 2px 0; }
   </style>
 </head>
 <body>
@@ -293,14 +325,19 @@
   <div>
     <h1>H₂ Flamelet LUT Viewer</h1>
   </div>
-  <div class="subtitle" id="header-subtitle"></div>
+  <div class="header-info" id="header-subtitle"></div>
+  <div class="view-tabs">
+    <button class="tab-btn active" id="tab-scatter" onclick="setView('scatter')">Scatter</button>
+    <button class="tab-btn" id="tab-scatter3d" onclick="setView('scatter3d')">3D Scatter</button>
+    <button class="tab-btn" id="tab-trapmap" onclick="setView('trapmap')">Trapezoidal Map</button>
+  </div>
 </header>
 
 <div class="layout">
   <!-- Sidebar -->
   <div class="sidebar">
 
-    <!-- Level selector -->
+    <!-- Level selector (always visible) -->
     <div>
       <div class="section-title">Mixture Fraction Level</div>
       <label>Level index</label>
@@ -308,38 +345,32 @@
         <input type="range" id="level-slider" min="0" max="49" value="0" step="1" />
         <span class="slider-value" id="level-idx-display">0</span>
       </div>
-      <div class="level-mf" id="mf-display">Z = —</div>
+      <div class="level-info" id="mf-display">Z = —</div>
       <div class="level-nav">
         <button id="prev-btn">◀ Prev</button>
         <button id="next-btn">Next ▶</button>
       </div>
     </div>
 
-    <!-- Axes -->
-    <div>
+    <!-- Scatter-specific controls -->
+    <div id="scatter-controls">
+      <hr />
+      <div style="height:8px"></div>
       <div class="section-title">Axes</div>
       <label>X axis</label>
       <select id="x-var"></select>
       <label>Y axis</label>
       <select id="y-var"></select>
-    </div>
 
-    <!-- Color -->
-    <div>
-      <div class="section-title">Color</div>
+      <div class="section-title" style="margin-top:10px">Color</div>
       <label>Color variable</label>
-      <select id="color-var">
-        <option value="__none__">None (uniform)</option>
-      </select>
+      <select id="color-var"></select>
       <label>Color scale</label>
       <div class="colorscale-grid" id="cs-grid"></div>
-    </div>
 
-    <!-- Overlay -->
-    <div>
-      <div class="section-title">Display</div>
+      <div class="section-title" style="margin-top:10px">Display</div>
       <div class="toggle-row">
-        <span class="toggle-label">Show all levels (faint)</span>
+        <span class="toggle-label">Overlay all levels</span>
         <label class="toggle">
           <input type="checkbox" id="overlay-toggle" />
           <span class="toggle-slider"></span>
@@ -352,22 +383,110 @@
       </div>
     </div>
 
-    <!-- Stats -->
+    <!-- 3D scatter controls -->
+    <div id="scatter3d-controls" style="display:none">
+      <hr />
+      <div style="height:8px"></div>
+      <div class="section-title">3D Axes</div>
+      <label>X axis</label>
+      <select id="x3-var"></select>
+      <label>Y axis</label>
+      <select id="y3-var"></select>
+      <label>Z axis</label>
+      <select id="z3-var"></select>
+
+      <div class="section-title" style="margin-top:10px">Color</div>
+      <label>Color variable</label>
+      <select id="color3-var"></select>
+      <label>Color scale</label>
+      <div class="colorscale-grid" id="cs3-grid"></div>
+
+      <div class="section-title" style="margin-top:10px">Display</div>
+      <div class="toggle-row">
+        <span class="toggle-label">Overlay all levels</span>
+        <label class="toggle">
+          <input type="checkbox" id="overlay3-toggle" />
+          <span class="toggle-slider"></span>
+        </label>
+      </div>
+      <label>Marker size</label>
+      <div class="slider-row">
+        <input type="range" id="marker3-size" min="1" max="10" value="3" step="1" />
+        <span class="slider-value" id="marker3-size-display">3</span>
+      </div>
+    </div>
+
+    <!-- Trapmap-specific controls -->
+    <div id="trapmap-controls" style="display:none">
+      <hr />
+      <div style="height:8px"></div>
+      <div class="section-title">Trapezoidal Map (Slab Method)</div>
+      <div class="band-info">
+        The slab method partitions the (PV, H) plane into vertical bands at
+        each unique progress-variable sample. Within each band the sorted
+        edge intersections provide O(log n) lookup.<br><br>
+        <b>Blue lines</b>: slab boundaries &nbsp;·&nbsp;
+        <b>Red line</b>: selected slab &nbsp;·&nbsp;
+        <b>Orange dots</b>: hull vertices
+      </div>
+      <label>Selected slab (band index)</label>
+      <div class="slider-row">
+        <input type="range" id="slab-slider" min="0" max="100" value="50" step="1" />
+        <span class="slider-value" id="slab-idx-display">—</span>
+      </div>
+      <div class="band-info" id="slab-info" style="background:#eff6ff;border-color:#bfdbfe">
+        &nbsp;
+      </div>
+      <label style="margin-top:6px">Show slab grid (every Nth band)</label>
+      <div class="slider-row">
+        <input type="range" id="slab-density" min="1" max="50" value="20" step="1" />
+        <span class="slider-value" id="slab-density-display">20</span>
+      </div>
+      <div class="toggle-row">
+        <span class="toggle-label">Show mesh edges</span>
+        <label class="toggle">
+          <input type="checkbox" id="mesh-toggle" checked />
+          <span class="toggle-slider"></span>
+        </label>
+      </div>
+      <div class="toggle-row">
+        <span class="toggle-label">Show hull</span>
+        <label class="toggle">
+          <input type="checkbox" id="hull-toggle" checked />
+          <span class="toggle-slider"></span>
+        </label>
+      </div>
+      <div class="toggle-row">
+        <span class="toggle-label">Color points by variable</span>
+        <label class="toggle">
+          <input type="checkbox" id="trapmap-color-toggle" checked />
+          <span class="toggle-slider"></span>
+        </label>
+      </div>
+      <label>Color variable</label>
+      <select id="trapmap-color-var"></select>
+      <label>Color scale</label>
+      <div class="colorscale-grid" id="tm-cs-grid"></div>
+    </div>
+
+    <!-- Stats (always visible) -->
     <div>
-      <div class="section-title">Statistics (current level)</div>
+      <hr />
+      <div style="height:8px"></div>
+      <div class="section-title">Statistics</div>
       <div class="stats-grid" id="stats-grid">
         <div class="stat-card"><div class="stat-label">Points</div><div class="stat-value" id="stat-n">—</div></div>
         <div class="stat-card"><div class="stat-label">X min</div><div class="stat-value" id="stat-xmin">—</div></div>
         <div class="stat-card"><div class="stat-label">X max</div><div class="stat-value" id="stat-xmax">—</div></div>
         <div class="stat-card"><div class="stat-label">Y min</div><div class="stat-value" id="stat-ymin">—</div></div>
         <div class="stat-card"><div class="stat-label">Y max</div><div class="stat-value" id="stat-ymax">—</div></div>
-        <div class="stat-card"><div class="stat-label">Y mean</div><div class="stat-value" id="stat-ymean">—</div></div>
+        <div class="stat-card"><div class="stat-label">Triangles</div><div class="stat-value" id="stat-tri">—</div></div>
       </div>
     </div>
 
   </div><!-- /sidebar -->
 
-  <!-- Chart -->
+  <!-- Chart area -->
   <div class="main">
     <div id="chart"></div>
   </div>
@@ -376,12 +495,15 @@
 <script>
 // ── State ──────────────────────────────────────────────────────────────────
 let meta = null;
+let currentView = "scatter";
 let currentLevelIdx = 0;
-let levelCache = {};   // idx → parsed JSON
-let pendingFetch = null;
+let levelCache = {};
+let meshCache = {};
 
-const COLORSCALES = ["Viridis", "Plasma", "Inferno", "Magma", "Turbo", "Hot", "RdBu", "Jet"];
-let activeCS = "Viridis";
+const COLORSCALES = ["Viridis", "Plasma", "Inferno", "RdBu", "Jet", "Hot", "Turbo", "Cividis"];
+let activeCS_scatter = "Viridis";
+let activeCS_trapmap = "Viridis";
+let activeCS_3d      = "Viridis";
 
 // ── DOM refs ───────────────────────────────────────────────────────────────
 const loadingEl    = document.getElementById("loading");
@@ -399,56 +521,75 @@ const markerSizeDi = document.getElementById("marker-size-display");
 const prevBtn      = document.getElementById("prev-btn");
 const nextBtn      = document.getElementById("next-btn");
 const headerSub    = document.getElementById("header-subtitle");
+const scatterCtrl  = document.getElementById("scatter-controls");
+const scatter3dCtrl= document.getElementById("scatter3d-controls");
+const trapmapCtrl  = document.getElementById("trapmap-controls");
+const x3Select     = document.getElementById("x3-var");
+const y3Select     = document.getElementById("y3-var");
+const z3Select     = document.getElementById("z3-var");
+const color3Select = document.getElementById("color3-var");
+const cs3Grid      = document.getElementById("cs3-grid");
+const overlay3Tog  = document.getElementById("overlay3-toggle");
+const marker3Size  = document.getElementById("marker3-size");
+const marker3SizeDi= document.getElementById("marker3-size-display");
+const slabSlider   = document.getElementById("slab-slider");
+const slabIdxDisp  = document.getElementById("slab-idx-display");
+const slabDensity  = document.getElementById("slab-density");
+const slabDensDisp = document.getElementById("slab-density-display");
+const slabInfo     = document.getElementById("slab-info");
+const meshToggle   = document.getElementById("mesh-toggle");
+const hullToggle   = document.getElementById("hull-toggle");
+const tmColorTog   = document.getElementById("trapmap-color-toggle");
+const tmColorVar   = document.getElementById("trapmap-color-var");
+const tmCsGrid     = document.getElementById("tm-cs-grid");
 
-// ── Utilities ──────────────────────────────────────────────────────────────
+// ── Helpers ────────────────────────────────────────────────────────────────
 function fmt(v) {
   if (v === undefined || v === null || isNaN(v)) return "—";
   if (Math.abs(v) >= 1e4 || (Math.abs(v) < 1e-3 && v !== 0))
     return v.toExponential(3);
-  return v.toPrecision(5);
+  return v.toPrecision(4);
 }
-
-function arrMin(a) { let m = Infinity; for (const v of a) if (v < m) m = v; return m; }
+function arrMin(a) { let m = Infinity;  for (const v of a) if (v < m) m = v; return m; }
 function arrMax(a) { let m = -Infinity; for (const v of a) if (v > m) m = v; return m; }
-function arrMean(a) { let s = 0; for (const v of a) s += v; return s / a.length; }
 
 function setLoading(text) {
   if (text) { loadingEl.classList.remove("hidden"); loadingText.textContent = text; }
   else loadingEl.classList.add("hidden");
 }
 
-// ── Fetch level data (with cache) ──────────────────────────────────────────
 async function fetchLevel(idx) {
   if (levelCache[idx]) return levelCache[idx];
-  const resp = await fetch(`data/level_${String(idx).padStart(2,"0")}.json`);
-  if (!resp.ok) throw new Error(`Failed to load level ${idx}`);
-  const data = await resp.json();
-  levelCache[idx] = data;
-  return data;
+  const r = await fetch(`data/level_${String(idx).padStart(2,"0")}.json`);
+  if (!r.ok) throw new Error(`Level ${idx} fetch failed`);
+  levelCache[idx] = await r.json();
+  return levelCache[idx];
 }
 
-// Pre-fetch adjacent levels silently
+async function fetchMesh(idx) {
+  if (meshCache[idx]) return meshCache[idx];
+  const r = await fetch(`data/mesh_${String(idx).padStart(2,"0")}.json`);
+  if (!r.ok) throw new Error(`Mesh ${idx} fetch failed`);
+  meshCache[idx] = await r.json();
+  return meshCache[idx];
+}
+
 function prefetch(idx) {
-  [idx - 1, idx + 1].forEach(i => {
-    if (i >= 0 && i < meta.n_levels && !levelCache[i]) fetchLevel(i).catch(() => {});
+  [idx-1, idx+1].forEach(i => {
+    if (i >= 0 && i < meta.n_levels) {
+      if (!levelCache[i]) fetchLevel(i).catch(()=>{});
+      if (!meshCache[i])  fetchMesh(i).catch(()=>{});
+    }
   });
 }
 
-// ── Build UI from metadata ─────────────────────────────────────────────────
+// ── Build UI ───────────────────────────────────────────────────────────────
 function buildUI() {
   const vars = meta.var_names;
-  const n = meta.n_levels;
+  levelSlider.max = meta.n_levels - 1;
 
-  levelSlider.max = n - 1;
-
-  // Populate variable dropdowns
-  function fillSelect(sel, defaultVal, includeNone) {
+  function fillSelect(sel, defaultVal) {
     sel.innerHTML = "";
-    if (includeNone) {
-      const opt = document.createElement("option");
-      opt.value = "__none__"; opt.textContent = "None (uniform)";
-      sel.appendChild(opt);
-    }
     vars.forEach((v, i) => {
       const opt = document.createElement("option");
       opt.value = i; opt.textContent = v;
@@ -457,10 +598,10 @@ function buildUI() {
     });
   }
 
-  fillSelect(xSelect, "ProgressVariable", false);
-  fillSelect(ySelect, "EnthalpyTot", false);
+  fillSelect(xSelect, "ProgressVariable");
+  fillSelect(ySelect, "EnthalpyTot");
 
-  // Color select
+  // Scatter color
   colorSelect.innerHTML = '<option value="__none__">None (uniform)</option>';
   vars.forEach((v, i) => {
     const opt = document.createElement("option");
@@ -469,155 +610,460 @@ function buildUI() {
     colorSelect.appendChild(opt);
   });
 
-  // Color scale buttons
-  csGrid.innerHTML = "";
-  COLORSCALES.forEach(cs => {
-    const btn = document.createElement("button");
-    btn.className = "cs-btn" + (cs === activeCS ? " active" : "");
-    btn.textContent = cs;
-    btn.onclick = () => {
-      activeCS = cs;
-      document.querySelectorAll(".cs-btn").forEach(b => b.classList.remove("active"));
-      btn.classList.add("active");
-      renderChart();
-    };
-    csGrid.appendChild(btn);
-  });
+  // Trapmap color
+  fillSelect(tmColorVar, "Temperature");
 
-  headerSub.textContent = `${n} mixture fraction levels · ${vars.length} variables · ${
-    meta.n_points.reduce((a, b) => a + b, 0).toLocaleString()} total points`;
-}
-
-// ── Render chart ───────────────────────────────────────────────────────────
-async function renderChart() {
-  const idx = currentLevelIdx;
-  setLoading(`Loading level ${idx + 1} / ${meta.n_levels}…`);
-
-  let levelData;
-  try {
-    levelData = await fetchLevel(idx);
-  } catch (e) {
-    setLoading(null);
-    alert("Error loading level data: " + e.message);
-    return;
+  function buildCsGrid(container, getActive, setActive) {
+    container.innerHTML = "";
+    COLORSCALES.forEach(cs => {
+      const btn = document.createElement("button");
+      btn.className = "cs-btn" + (cs === getActive() ? " active" : "");
+      btn.textContent = cs;
+      btn.onclick = () => {
+        setActive(cs);
+        container.querySelectorAll(".cs-btn").forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+        renderChart();
+      };
+      container.appendChild(btn);
+    });
   }
 
-  const xVarIdx   = parseInt(xSelect.value);
-  const yVarIdx   = parseInt(ySelect.value);
-  const colorVal  = colorSelect.value;
-  const xName     = meta.var_names[xVarIdx];
-  const yName     = meta.var_names[yVarIdx];
-  const sz        = parseInt(markerSize.value);
-  const showOverlay = overlayTog.checked;
+  fillSelect(x3Select, "ProgressVariable");
+  fillSelect(y3Select, "EnthalpyTot");
+  fillSelect(z3Select, "Temperature");
 
-  const xArr = levelData.data[xName];
-  const yArr = levelData.data[yName];
+  color3Select.innerHTML = '<option value="__none__">None (uniform)</option>';
+  vars.forEach((v, i) => {
+    const opt = document.createElement("option");
+    opt.value = i; opt.textContent = v;
+    if (v === "Temperature") opt.selected = true;
+    color3Select.appendChild(opt);
+  });
 
-  // Build traces
+  buildCsGrid(csGrid,    () => activeCS_scatter, v => { activeCS_scatter = v; });
+  buildCsGrid(tmCsGrid,  () => activeCS_trapmap, v => { activeCS_trapmap = v; });
+  buildCsGrid(cs3Grid,   () => activeCS_3d,      v => { activeCS_3d = v; });
+
+  headerSub.textContent = `${meta.n_levels} levels · ${meta.n_vars} variables · ${
+    meta.n_points.reduce((a,b)=>a+b,0).toLocaleString()} points`;
+}
+
+// ── View switcher ──────────────────────────────────────────────────────────
+function setView(v) {
+  currentView = v;
+  document.getElementById("tab-scatter").classList.toggle("active", v === "scatter");
+  document.getElementById("tab-scatter3d").classList.toggle("active", v === "scatter3d");
+  document.getElementById("tab-trapmap").classList.toggle("active", v === "trapmap");
+  scatterCtrl.style.display   = v === "scatter"   ? "" : "none";
+  scatter3dCtrl.style.display = v === "scatter3d" ? "" : "none";
+  trapmapCtrl.style.display   = v === "trapmap"   ? "" : "none";
+  renderChart();
+}
+
+// ── Compute slab boundaries for a level ───────────────────────────────────
+function computeSlabs(pvArr) {
+  // Mirror of CTrapezoidalMap: sort + unique PV values → unique_bands_x
+  const sorted = [...new Set(pvArr)].sort((a,b) => a - b);
+  return sorted; // band boundaries; n_bands = sorted.length - 1
+}
+
+// ── Build mesh edge arrays (with None breaks for Plotly) ──────────────────
+function buildEdgeArrays(triangles, xArr, yArr) {
+  const px = [], py = [];
+  for (const [i, j, k] of triangles) {
+    px.push(xArr[i], xArr[j], null, xArr[j], xArr[k], null, xArr[k], xArr[i], null);
+    py.push(yArr[i], yArr[j], null, yArr[j], yArr[k], null, yArr[k], yArr[i], null);
+  }
+  return { px, py };
+}
+
+// ── Render – scatter view ──────────────────────────────────────────────────
+async function renderScatter() {
+  const idx = currentLevelIdx;
+  setLoading(`Loading level ${idx + 1} / ${meta.n_levels}…`);
+  let ld;
+  try { ld = await fetchLevel(idx); } catch(e) { setLoading(null); alert(e.message); return; }
+
+  const xName  = meta.var_names[parseInt(xSelect.value)];
+  const yName  = meta.var_names[parseInt(ySelect.value)];
+  const cVal   = colorSelect.value;
+  const sz     = parseInt(markerSize.value);
+  const xArr   = ld.data[xName];
+  const yArr   = ld.data[yName];
+
   const traces = [];
 
-  // Overlay: faint background of all cached levels
-  if (showOverlay) {
+  if (overlayTog.checked) {
     Object.entries(levelCache).forEach(([i, d]) => {
       if (parseInt(i) === idx) return;
       traces.push({
-        type: "scattergl",
-        mode: "markers",
-        x: d.data[xName],
-        y: d.data[yName],
-        marker: { size: 2, color: "rgba(255,255,255,0.07)" },
-        hoverinfo: "skip",
-        showlegend: false,
+        type: "scattergl", mode: "markers",
+        x: d.data[xName], y: d.data[yName],
+        marker: { size: 2, color: "rgba(0,0,0,0.07)" },
+        hoverinfo: "skip", showlegend: false,
       });
     });
   }
 
-  // Main scatter
-  let markerDef = { size: sz, opacity: 0.85, color: "#4f6ef7" };
-  let colorbarLayout = {};
-
-  if (colorVal !== "__none__") {
-    const cName  = meta.var_names[parseInt(colorVal)];
-    const cArr   = levelData.data[cName];
-    markerDef = {
-      size: sz,
-      opacity: 0.85,
-      color: cArr,
-      colorscale: activeCS,
+  let marker = { size: sz, opacity: 0.85, color: "#2563eb" };
+  if (cVal !== "__none__") {
+    const cName = meta.var_names[parseInt(cVal)];
+    marker = {
+      size: sz, opacity: 0.85,
+      color: ld.data[cName],
+      colorscale: activeCS_scatter,
       showscale: true,
       colorbar: {
-        title: { text: cName, font: { color: "#9ca3af", size: 11 } },
-        tickfont: { color: "#9ca3af", size: 10 },
-        bgcolor: "#1a1d27",
-        bordercolor: "#2a2d3a",
-        thickness: 14,
-        len: 0.85,
+        title: { text: cName, font: { size: 11, color: "#374151" } },
+        tickfont: { size: 10, color: "#374151" },
+        thickness: 14, len: 0.85,
+        bgcolor: "#ffffff", bordercolor: "#dde1e9",
       },
     };
   }
 
   traces.push({
-    type: "scattergl",
-    mode: "markers",
-    x: xArr,
-    y: yArr,
-    marker: markerDef,
-    name: `Z = ${levelData.mixture_fraction.toExponential(4)}`,
+    type: "scattergl", mode: "markers",
+    x: xArr, y: yArr, marker,
+    name: `Z = ${ld.mixture_fraction.toExponential(4)}`,
     hovertemplate: `<b>${xName}</b>: %{x:.4g}<br><b>${yName}</b>: %{y:.4g}<extra></extra>`,
   });
 
-  const layout = {
-    paper_bgcolor: "#0f1117",
-    plot_bgcolor:  "#0f1117",
-    margin: { l: 70, r: 20, t: 40, b: 60 },
-    font: { color: "#9ca3af", size: 12 },
-    xaxis: {
-      title: { text: xName, font: { color: "#9ca3af" } },
-      gridcolor: "#2a2d3a",
-      zerolinecolor: "#3a3d4a",
-      tickfont: { color: "#9ca3af" },
-    },
-    yaxis: {
-      title: { text: yName, font: { color: "#9ca3af" } },
-      gridcolor: "#2a2d3a",
-      zerolinecolor: "#3a3d4a",
-      tickfont: { color: "#9ca3af" },
-    },
-    title: {
-      text: `Level ${idx} &nbsp;·&nbsp; Z = ${levelData.mixture_fraction.toExponential(5)} &nbsp;·&nbsp; ${xArr.length.toLocaleString()} points`,
-      font: { color: "#e0e0e0", size: 13 },
-      x: 0.01,
-      xanchor: "left",
-    },
-    legend: { font: { color: "#9ca3af" }, bgcolor: "rgba(0,0,0,0)" },
-    uirevision: `${xVarIdx}-${yVarIdx}`,  // preserve zoom when only color/level changes
-  };
+  const layout = makeLayout(xName, yName,
+    `Level ${idx}  ·  Z = ${ld.mixture_fraction.toExponential(5)}  ·  ${xArr.length.toLocaleString()} pts`,
+    `${xName}-${yName}`);
 
-  await Plotly.react("chart", traces, layout, {
-    responsive: true,
-    displaylogo: false,
-    modeBarButtonsToRemove: ["lasso2d", "select2d"],
-  });
-
-  // Update stats
-  document.getElementById("stat-n").textContent = xArr.length.toLocaleString();
-  document.getElementById("stat-xmin").textContent = fmt(arrMin(xArr));
-  document.getElementById("stat-xmax").textContent = fmt(arrMax(xArr));
-  document.getElementById("stat-ymin").textContent = fmt(arrMin(yArr));
-  document.getElementById("stat-ymax").textContent = fmt(arrMax(yArr));
-  document.getElementById("stat-ymean").textContent = fmt(arrMean(yArr));
-
+  await Plotly.react("chart", traces, layout, plotlyConfig());
+  updateStats(xArr, yArr, xArr.length, "—");
   setLoading(null);
   prefetch(idx);
 }
 
-// ── Level change ───────────────────────────────────────────────────────────
+// ── Render – 3D scatter view ───────────────────────────────────────────────
+async function renderScatter3d() {
+  const idx = currentLevelIdx;
+  setLoading(`Loading level ${idx + 1} / ${meta.n_levels}…`);
+  let ld;
+  try { ld = await fetchLevel(idx); } catch(e) { setLoading(null); alert(e.message); return; }
+
+  const xName = meta.var_names[parseInt(x3Select.value)];
+  const yName = meta.var_names[parseInt(y3Select.value)];
+  const zName = meta.var_names[parseInt(z3Select.value)];
+  const cVal  = color3Select.value;
+  const sz    = parseInt(marker3Size.value);
+
+  const xArr = ld.data[xName];
+  const yArr = ld.data[yName];
+  const zArr = ld.data[zName];
+
+  const traces = [];
+
+  if (overlay3Tog.checked) {
+    Object.entries(levelCache).forEach(([i, d]) => {
+      if (parseInt(i) === idx) return;
+      traces.push({
+        type: "scatter3d", mode: "markers",
+        x: d.data[xName], y: d.data[yName], z: d.data[zName],
+        marker: { size: 1.5, color: "rgba(0,0,0,0.12)", opacity: 0.3 },
+        hoverinfo: "skip", showlegend: false,
+      });
+    });
+  }
+
+  let marker = { size: sz, opacity: 0.85, color: "#2563eb" };
+  if (cVal !== "__none__") {
+    const cName = meta.var_names[parseInt(cVal)];
+    marker = {
+      size: sz, opacity: 0.85,
+      color: ld.data[cName],
+      colorscale: activeCS_3d,
+      showscale: true,
+      colorbar: {
+        title: { text: cName, font: { size: 11, color: "#374151" } },
+        tickfont: { size: 10, color: "#374151" },
+        thickness: 14, len: 0.7,
+        bgcolor: "#ffffff", bordercolor: "#dde1e9",
+      },
+    };
+  }
+
+  traces.push({
+    type: "scatter3d", mode: "markers",
+    x: xArr, y: yArr, z: zArr, marker,
+    name: `Z = ${ld.mixture_fraction.toExponential(4)}`,
+    hovertemplate:
+      `<b>${xName}</b>: %{x:.4g}<br>` +
+      `<b>${yName}</b>: %{y:.4g}<br>` +
+      `<b>${zName}</b>: %{z:.4g}<extra></extra>`,
+  });
+
+  const layout = {
+    paper_bgcolor: "#ffffff",
+    margin: { l: 0, r: 0, t: 40, b: 0 },
+    font: { color: "#374151", size: 11 },
+    scene: {
+      bgcolor: "#f9fafb",
+      xaxis: { title: xName, gridcolor: "#e5e7eb", linecolor: "#d1d5db", tickfont: { size: 10 } },
+      yaxis: { title: yName, gridcolor: "#e5e7eb", linecolor: "#d1d5db", tickfont: { size: 10 } },
+      zaxis: { title: zName, gridcolor: "#e5e7eb", linecolor: "#d1d5db", tickfont: { size: 10 } },
+      camera: (() => {
+        try {
+          const cam = document.getElementById("chart")._fullLayout.scene.camera;
+          return { eye: cam.eye, center: cam.center, up: cam.up };
+        } catch { return { eye: { x: 1.5, y: 1.5, z: 0.8 } }; }
+      })(),
+    },
+    title: {
+      text: `Level ${idx}  ·  Z = ${ld.mixture_fraction.toExponential(5)}  ·  ${xArr.length.toLocaleString()} pts`,
+      font: { color: "#374151", size: 12 },
+      x: 0.01, xanchor: "left",
+    },
+    uirevision: `3d-${xName}-${yName}-${zName}`,
+  };
+
+  await Plotly.react("chart", traces, layout, plotlyConfig());
+  updateStats(xArr, yArr, xArr.length, "—");
+  setLoading(null);
+  prefetch(idx);
+}
+
+// ── Render – trapezoidal map view ──────────────────────────────────────────
+async function renderTrapmap() {
+  const idx = currentLevelIdx;
+  setLoading(`Loading mesh for level ${idx + 1}…`);
+
+  let ld, md;
+  try {
+    [ld, md] = await Promise.all([fetchLevel(idx), fetchMesh(idx)]);
+  } catch(e) { setLoading(null); alert(e.message); return; }
+
+  const pvArr = ld.data["ProgressVariable"];
+  const enArr = ld.data["EnthalpyTot"];
+
+  const slabs = computeSlabs(pvArr);    // sorted unique PV values
+  const nBands = slabs.length - 1;
+
+  // Sync slab slider range
+  slabSlider.max = nBands - 1;
+  const selBand = Math.min(parseInt(slabSlider.value), nBands - 1);
+  slabSlider.value = selBand;
+  slabIdxDisp.textContent = selBand;
+
+  const density = parseInt(slabDensity.value);
+  const enMin = arrMin(enArr), enMax = arrMax(enArr);
+
+  const traces = [];
+
+  // ── 1. Triangle mesh edges ──
+  if (meshToggle.checked) {
+    const { px, py } = buildEdgeArrays(md.triangles, pvArr, enArr);
+    traces.push({
+      type: "scatter", mode: "lines",
+      x: px, y: py,
+      line: { color: "rgba(150,150,200,0.35)", width: 0.6 },
+      hoverinfo: "skip", showlegend: false, name: "Mesh",
+    });
+  }
+
+  // ── 2. Scatter points (colored) ──
+  let ptMarker = { size: 3, opacity: 0.7, color: "#2563eb" };
+  if (tmColorTog.checked) {
+    const cName = meta.var_names[parseInt(tmColorVar.value)];
+    ptMarker = {
+      size: 3, opacity: 0.75,
+      color: ld.data[cName],
+      colorscale: activeCS_trapmap,
+      showscale: true,
+      colorbar: {
+        title: { text: cName, font: { size: 11, color: "#374151" } },
+        tickfont: { size: 10, color: "#374151" },
+        thickness: 14, len: 0.7,
+        bgcolor: "#ffffff", bordercolor: "#dde1e9",
+        x: 1.02,
+      },
+    };
+  }
+
+  traces.push({
+    type: "scattergl", mode: "markers",
+    x: pvArr, y: enArr, marker: ptMarker,
+    hovertemplate: "<b>PV</b>: %{x:.4g}<br><b>H</b>: %{y:.4g}<extra></extra>",
+    name: "Points",
+  });
+
+  // ── 3. Slab grid lines ──
+  const gridX = [], gridY = [];
+  for (let b = 0; b < slabs.length; b += density) {
+    const xv = slabs[b];
+    gridX.push(xv, xv, null);
+    gridY.push(enMin, enMax, null);
+  }
+  if (gridX.length) {
+    traces.push({
+      type: "scatter", mode: "lines",
+      x: gridX, y: gridY,
+      line: { color: "rgba(37,99,235,0.25)", width: 1, dash: "dot" },
+      hoverinfo: "skip", showlegend: false, name: "Slab grid",
+    });
+  }
+
+  // ── 4. Selected slab highlight ──
+  if (selBand >= 0 && selBand < nBands) {
+    const xLo = slabs[selBand];
+    const xHi = slabs[selBand + 1];
+    const xMid = (xLo + xHi) / 2;
+
+    // Shaded region
+    traces.push({
+      type: "scatter", mode: "lines", fill: "tozerox",
+      x: [xLo, xHi, xHi, xLo, xLo],
+      y: [enMin, enMin, enMax, enMax, enMin],
+      fillcolor: "rgba(239,68,68,0.08)",
+      line: { color: "rgba(239,68,68,0)", width: 0 },
+      hoverinfo: "skip", showlegend: false,
+    });
+
+    // Band boundary lines
+    [xLo, xHi].forEach(xv => {
+      traces.push({
+        type: "scatter", mode: "lines",
+        x: [xv, xv], y: [enMin, enMax],
+        line: { color: "#ef4444", width: 1.5 },
+        hoverinfo: "skip", showlegend: false,
+      });
+    });
+
+    // Find edges that intersect this band midpoint
+    const edgeX = [], edgeY = [];
+    for (const [i, j, k] of md.triangles) {
+      const edges = [[i,j],[j,k],[k,i]];
+      for (const [a, b] of edges) {
+        const xa = pvArr[a], xb = pvArr[b];
+        const xMin = Math.min(xa,xb), xMax = Math.max(xa,xb);
+        if (xMin <= xLo && xMax >= xHi) {
+          // Edge spans the band – compute Y at band midpoint
+          const ya = enArr[a], yb = enArr[b];
+          const yMid = ya + (yb - ya) / (xb - xa) * (xMid - xa);
+          edgeX.push(xMid - (xHi-xLo)*0.4, xMid + (xHi-xLo)*0.4, null);
+          edgeY.push(yMid, yMid, null);
+        }
+      }
+    }
+
+    if (edgeX.length) {
+      traces.push({
+        type: "scatter", mode: "lines",
+        x: edgeX, y: edgeY,
+        line: { color: "rgba(239,68,68,0.7)", width: 2 },
+        hoverinfo: "skip", showlegend: false, name: "Band edges",
+      });
+    }
+
+    // Update slab info panel
+    const nEdgesInBand = edgeX.filter(v=>v===null).length;
+    slabInfo.innerHTML =
+      `<b>Band ${selBand}</b>&nbsp;&nbsp;(of ${nBands})<br>` +
+      `PV ∈ [${xLo.toExponential(4)}, ${xHi.toExponential(4)}]<br>` +
+      `Intersecting edges: <b>${nEdgesInBand}</b>`;
+  }
+
+  // ── 5. Hull outline ──
+  if (hullToggle.checked) {
+    const hx = md.hull.map(i => pvArr[i]);
+    const hy = md.hull.map(i => enArr[i]);
+    // Close the hull
+    hx.push(hx[0]); hy.push(hy[0]);
+    traces.push({
+      type: "scatter", mode: "markers",
+      x: hx, y: hy,
+      marker: { size: 4, color: "#f97316", symbol: "circle-open", line: { width: 1.5, color: "#f97316" } },
+      hoverinfo: "skip", showlegend: false, name: "Hull",
+    });
+  }
+
+  const layout = makeLayout(
+    "Progress Variable (PV)",
+    "Total Enthalpy (H)",
+    `Level ${idx}  ·  Z = ${ld.mixture_fraction.toExponential(5)}  ·  ${pvArr.length.toLocaleString()} pts  ·  ${md.triangles.length.toLocaleString()} triangles  ·  ${nBands.toLocaleString()} bands`,
+    "trapmap",
+  );
+
+  await Plotly.react("chart", traces, layout, plotlyConfig());
+  updateStats(pvArr, enArr, pvArr.length, md.triangles.length.toLocaleString());
+  setLoading(null);
+  prefetch(idx);
+}
+
+// ── Shared layout helper ───────────────────────────────────────────────────
+function makeLayout(xTitle, yTitle, plotTitle, uiRevision) {
+  return {
+    paper_bgcolor: "#ffffff",
+    plot_bgcolor:  "#ffffff",
+    margin: { l: 70, r: 30, t: 45, b: 60 },
+    font: { color: "#374151", size: 12 },
+    xaxis: {
+      title: { text: xTitle, font: { color: "#374151" } },
+      gridcolor: "#e5e7eb",
+      linecolor: "#d1d5db",
+      zerolinecolor: "#d1d5db",
+      tickfont: { color: "#374151" },
+    },
+    yaxis: {
+      title: { text: yTitle, font: { color: "#374151" } },
+      gridcolor: "#e5e7eb",
+      linecolor: "#d1d5db",
+      zerolinecolor: "#d1d5db",
+      tickfont: { color: "#374151" },
+    },
+    title: {
+      text: plotTitle,
+      font: { color: "#374151", size: 12 },
+      x: 0.01, xanchor: "left",
+    },
+    legend: {
+      font: { color: "#374151", size: 11 },
+      bgcolor: "rgba(255,255,255,0.8)",
+      bordercolor: "#dde1e9",
+      borderwidth: 1,
+    },
+    uirevision: uiRevision,
+  };
+}
+
+function plotlyConfig() {
+  return {
+    responsive: true,
+    displaylogo: false,
+    modeBarButtonsToRemove: ["lasso2d","select2d","autoScale2d"],
+    toImageButtonOptions: { format: "svg", scale: 2 },
+  };
+}
+
+// ── Stats update ───────────────────────────────────────────────────────────
+function updateStats(xArr, yArr, nPts, nTri) {
+  document.getElementById("stat-n").textContent    = nPts.toLocaleString?.() ?? nPts;
+  document.getElementById("stat-xmin").textContent = fmt(arrMin(xArr));
+  document.getElementById("stat-xmax").textContent = fmt(arrMax(xArr));
+  document.getElementById("stat-ymin").textContent = fmt(arrMin(yArr));
+  document.getElementById("stat-ymax").textContent = fmt(arrMax(yArr));
+  document.getElementById("stat-tri").textContent  = nTri;
+}
+
+// ── Main render dispatcher ────────────────────────────────────────────────
+function renderChart() {
+  if (currentView === "scatter")   renderScatter();
+  else if (currentView === "scatter3d") renderScatter3d();
+  else renderTrapmap();
+}
+
+// ── Level navigation ───────────────────────────────────────────────────────
 function setLevel(idx) {
   idx = Math.max(0, Math.min(meta.n_levels - 1, idx));
   currentLevelIdx = idx;
   levelSlider.value = idx;
   levelIdxDisp.textContent = idx;
-  mfDisplay.textContent = `Z = ${meta.levels[idx].toExponential(5)}`;
+  mfDisplay.textContent = `Z = ${meta.levels[idx].toExponential(5)}  (level ${idx})`;
   renderChart();
 }
 
@@ -630,29 +1076,38 @@ xSelect.addEventListener("change", renderChart);
 ySelect.addEventListener("change", renderChart);
 colorSelect.addEventListener("change", renderChart);
 overlayTog.addEventListener("change", renderChart);
+markerSize.addEventListener("input", () => { markerSizeDi.textContent = markerSize.value; renderChart(); });
 
-markerSize.addEventListener("input", () => {
-  markerSizeDi.textContent = markerSize.value;
-  renderChart();
-});
+x3Select.addEventListener("change", renderChart);
+y3Select.addEventListener("change", renderChart);
+z3Select.addEventListener("change", renderChart);
+color3Select.addEventListener("change", renderChart);
+overlay3Tog.addEventListener("change", renderChart);
+marker3Size.addEventListener("input", () => { marker3SizeDi.textContent = marker3Size.value; renderChart(); });
 
-// Keyboard shortcuts
+slabSlider.addEventListener("input", () => { slabIdxDisp.textContent = slabSlider.value; renderTrapmap(); });
+slabDensity.addEventListener("input", () => { slabDensDisp.textContent = slabDensity.value; renderTrapmap(); });
+meshToggle.addEventListener("change", renderTrapmap);
+hullToggle.addEventListener("change", renderTrapmap);
+tmColorTog.addEventListener("change", renderTrapmap);
+tmColorVar.addEventListener("change", renderTrapmap);
+
 document.addEventListener("keydown", e => {
   if (e.target.tagName === "SELECT" || e.target.tagName === "INPUT") return;
-  if (e.key === "ArrowLeft" || e.key === "ArrowDown") { e.preventDefault(); setLevel(currentLevelIdx - 1); }
-  if (e.key === "ArrowRight" || e.key === "ArrowUp")  { e.preventDefault(); setLevel(currentLevelIdx + 1); }
+  if (e.key === "ArrowLeft"  || e.key === "ArrowDown")  { e.preventDefault(); setLevel(currentLevelIdx - 1); }
+  if (e.key === "ArrowRight" || e.key === "ArrowUp")    { e.preventDefault(); setLevel(currentLevelIdx + 1); }
 });
 
 // ── Bootstrap ──────────────────────────────────────────────────────────────
 (async () => {
   try {
     setLoading("Loading metadata…");
-    const resp = await fetch("data/metadata.json");
-    if (!resp.ok) throw new Error("Could not load data/metadata.json — run python preprocess.py first");
-    meta = await resp.json();
+    const r = await fetch("data/metadata.json");
+    if (!r.ok) throw new Error("data/metadata.json not found — run python preprocess.py first");
+    meta = await r.json();
     buildUI();
     setLevel(0);
-  } catch (e) {
+  } catch(e) {
     loadingText.textContent = "Error: " + e.message;
     console.error(e);
   }

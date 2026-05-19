@@ -54,6 +54,25 @@ def main():
 
     n_levels = meta["n_levels"]
 
+    # Read n_triangles and n_hull_points from header if not in metadata
+    if "n_triangles" not in meta or "n_hull_points" not in meta:
+        print("Reading triangle/hull counts from .drg header...")
+        n_tri = []
+        n_hull = []
+        with open(DRG_FILE, "r") as fh:
+            for line in fh:
+                l = line.strip()
+                if l == "[Number of triangles]":
+                    for _ in range(n_levels):
+                        n_tri.append(int(fh.readline().strip()))
+                if l == "[Number of hull points]":
+                    for _ in range(n_levels):
+                        n_hull.append(int(fh.readline().strip()))
+                if l == "</Header>":
+                    break
+        meta["n_triangles"] = n_tri
+        meta["n_hull_points"] = n_hull
+
     # Fast-forward to <Connectivity>
     print("Scanning to <Connectivity> section...")
     conn_data = None
